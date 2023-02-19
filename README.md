@@ -7,4 +7,4 @@ The qmain function creates an empty chessboard represented as a 2D array of 8x8 
 
 The safety function checks whether a queen can be safely placed in a given box on the chessboard, represented by the row and column indices passed as arguments. It does this by checking the row, column, and diagonals for any previously placed queens that would attack the current box. If no queens are found that would attack the current box, the function returns true, indicating that it is safe to place a queen in the current box.
 
-The main function creates an instance of the bisat class and calls its qmain function to solve the Eight Queens Puzzle. If the puzzle is solved, the main function returns 0 to indicate success.
+The main function creates an instance of the bisat class and calls its qmain function to solve the puzzle. If the puzzle is solved, the main function returns 0 to indicate success.
