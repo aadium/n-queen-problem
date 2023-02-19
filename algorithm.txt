@@ -1,8 +1,12 @@
-1) Begin at the leftmost column.
-2) Return true if all queens are placed.
-3) Try this with all rows in the current column.
-4) Repeat for each tried row.
-    a) If the queen can be safely placed in this row, then mark this [row, column] as part of the solution and check recursively if placing the queen here leads to a solution.
-    b) Return true if placing the queen in [row, column] results in a solution.
-    c) If placing the queen does not result in a solution, unmark this [row, column] (Backtrack) and return to step (a) to try other rows.
-5) If all rows have been tried and nothing has worked, return false to start the backtracking process.
+Create a bisat class with functions to solve the puzzle recursively.
+Create a qsub function that tries to place a queen in each row of the current column.
+Check if the queen can be placed in the given box marked by board[i][col].
+If yes, place the queen in the box and recursively call qsub function for the remaining columns.
+If a solution is found, return true.
+If placing the queen in board[i][col] doesn't lead to a solution, then remove the queen from the box (backtrack).
+If the queen cannot be placed in any row in col, return false.
+Create a qmain function that creates an empty chessboard and calls qsub function to solve the puzzle.
+If a solution is found, call the printboard function to display the solution.
+If a solution is not found, print an error message and return false.
+Create a printboard function to display the solution.
+Create a main function that creates an instance of the bisat class and calls its qmain function to solve the puzzle.
