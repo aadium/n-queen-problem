@@ -43,7 +43,7 @@ class bisat
                             { 0, 0, 0, 0, 0, 0, 0, 0 },
                             { 0, 0, 0, 0, 0, 0, 0, 0 },
                             { 0, 0, 0, 0, 0, 0, 0, 0 },
-                            { 0, 0, 0, 0, 0, 0, 0, 0 } };
+                            { 0, 0, 0, 0, 0, 0, 0, 0 } }; // the grid is defined
     
         if (qsub(board, 0) == false) {
             cout << "Solution does not exist";

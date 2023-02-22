@@ -15,7 +15,7 @@ The code defines a C++ class called bisat, which contains three public member fu
 
 bool qsub - This function is a recursive function that uses a stack-based approach to solve the N-Queens problem. It takes four stack arguments representing the current state of the chessboard, the columns that have already been occupied, and the diagonals that have already been occupied. It returns a Boolean value indicating whether a valid solution has been found.
 
-bool qmain - This function sets up the initial state of the chessboard and calls the qsub() function to solve the N-Queens problem. If a valid solution is found, it calls the printboard() function to print the solution on the console. It returns a Boolean value indicating whether a valid solution was found.
+bool qmain - This function sets up the initial state of the chessboard and calls the qsub function to solve the N-Queens problem. If a valid solution is found, it calls the printboard function to print the solution on the console. It returns a Boolean value indicating whether a valid solution was found.
 
 bool safety - This function takes four stack arguments representing the current state of the chessboard and diagonals, and two integer arguments representing the row and column of the queen being placed. It returns a Boolean value indicating whether it is safe to place a queen in the given row and column.
 
