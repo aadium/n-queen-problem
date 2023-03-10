@@ -21,7 +21,7 @@ bool qmain - This function sets up the initial state of the chessboard and calls
 
 bool safety - This function takes four stack arguments representing the current state of the chessboard and diagonals, and two integer arguments representing the row and column of the queen being placed. It returns a Boolean value indicating whether it is safe to place a queen in the given row and column.
 
-The main function creates an instance of the bisat class and calls its qmain function to solve the N-Queens problem.
+The main function creates an instance of the bisat class and calls its qmain function to solve the N-Queens problem It also asks the user for an input regarding the chessboard size.
 
 The program uses a stack-based approach to simulate the placement of queens on the chessboard. The board stack contains the row numbers of the queens, while the cols, diag1, and diag2 stacks keep track of the occupied columns and diagonals.
 
@@ -29,4 +29,4 @@ The qsub function tries to place a queen in each row of the current column, and 
 
 The safety function checks whether it is safe to place a queen in a given row and column by comparing the position of the queen with those already placed on the board. It checks if the queen is in the same row, diagonal 1, or diagonal 2 as any of the previously placed queens.
 
-Finally, the printboard function prints the solution on the console using a 2D array arr, where 1 represents a queen and 0 represents an empty cell.
+Finally, the printboard function prints the solution on the console using a 2D array arr, where Q represents a queen and 0 represents an empty cell.

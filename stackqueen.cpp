@@ -1,10 +1,13 @@
 #include <iostream>
 #include <stack>
-#define N 8
 using namespace std;
 
 class bisat {
 public:
+    int N;
+    bisat(int n) {
+        N = n;
+    }
 
     // A helper recursive function that is used to solve the problem
     bool qsub(stack<int>& board, stack<int>& cols, stack<int>& diag1, stack<int>& diag2) {
@@ -76,39 +79,57 @@ public:
         return true; // True is returned if the queen can be placed
     }
 
+
     // A helper function to print the chessboard grid
-    void printboard(stack<int>& board, stack<int>& cols) {
-        int arr[N][N] = {0}; // this array stores the specific locations of the queens on the chessboard grid
-        while (!board.empty()) {
-            arr[board.top()][cols.top()] = 1; // a specific location of the array grid gets populated if the board stack is not empty
-            // the board and cols stacks are emptied as the loop iterates
-            board.pop();
-            cols.pop();
+void printboard(stack<int>& board, stack<int>& cols) {
+    int** arr = new int*[N];
+    for (int i = 0; i < N; i++) {
+        arr[i] = new int[N];
+        for (int j = 0; j < N; j++) {
+            arr[i][j] = 0;
         }
+    }
 
-        //the grid is printed out
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if (arr[i][j]) {
-                    cout << "Q ";
-                }
-                else {
-                    cout << ". ";
-                }
+    while (!board.empty()) {
+        arr[board.top()][cols.top()] = 1;
+        board.pop();
+        cols.pop();
+    }
 
+    // print the array
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (arr[i][j]) {
+                cout << "Q ";
             }
-            cout << endl;
+            else {
+                cout << ". ";
+            }
 
         }
+        cout << endl;
 
     }
+
+    // deallocate memory
+
+    for (int i = 0; i < N; i++) {
+        delete[] arr[i];
+    }
+    delete[] arr;
+}
+
 
 };
 
 int main(int argc, char const* argv[]) {
-    bisat chessboard;
+    int size; // Size of chessboard
 
+    cout << "Please enter the chessboard size: ";
+    cin >> size;
+    bisat chessboard(size);
     chessboard.qmain();
-
+    
     return 0;
 }
