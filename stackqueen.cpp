@@ -4,7 +4,9 @@ using namespace std;
 
 class bisat {
 public:
-    int N;
+    int N; //size of the board
+
+    // constructor to initialize the value of N to be equal to int n, the value entered by the user
     bisat(int n) {
         N = n;
     }
@@ -82,7 +84,7 @@ public:
 
     // A helper function to print the chessboard grid
 void printboard(stack<int>& board, stack<int>& cols) {
-    int** arr = new int*[N];
+    int** arr = new int*[N]; // using dynamic memory flexes the array size, thus enabling the size to be defined by the user at runtime
     for (int i = 0; i < N; i++) {
         arr[i] = new int[N];
         for (int j = 0; j < N; j++) {
@@ -90,14 +92,14 @@ void printboard(stack<int>& board, stack<int>& cols) {
         }
     }
 
+    // this code fills up the arr array
     while (!board.empty()) {
         arr[board.top()][cols.top()] = 1;
         board.pop();
         cols.pop();
     }
 
-    // print the array
-
+    // code prints the array
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             if (arr[i][j]) {
@@ -113,7 +115,6 @@ void printboard(stack<int>& board, stack<int>& cols) {
     }
 
     // deallocate memory
-
     for (int i = 0; i < N; i++) {
         delete[] arr[i];
     }
@@ -125,11 +126,23 @@ void printboard(stack<int>& board, stack<int>& cols) {
 
 int main(int argc, char const* argv[]) {
     int size; // Size of chessboard
+    char choice; // variable that stores the user choice
 
-    cout << "Please enter the chessboard size: ";
-    cin >> size;
-    bisat chessboard(size);
-    chessboard.qmain();
+    do
+    {
+        choice = 'N';
+        cout << "Please enter the chessboard size: ";
+        cin >> size;
+
+        bisat chessboard(size);
+        chessboard.qmain();
+
+        cout << "Do you want to print another chessboard?(Y/N): ";
+        cin >> choice;
+
+    } while (choice == 'Y' || choice == 'y');
+
+    cout << "Exiting Program" << endl;
     
     return 0;
 }
